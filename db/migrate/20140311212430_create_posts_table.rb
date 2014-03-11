@@ -6,8 +6,6 @@ class CreatePostsTable < ActiveRecord::Migration
       t.text :body
 
       t.timestamps
-
-      t.has_many :comments
     end
   end
 end
