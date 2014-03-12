@@ -1,8 +1,7 @@
 RailsAssessment::Application.routes.draw do
 
-  resources :posts do
-    resources :comments
-  end
+  resource :posts
+  resource :comments, only: [:create, :delete]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
