@@ -1,0 +1,26 @@
+1) How does rails communicate with the database?  Please be thorough in discussing all the config files and pieces of rails necessary to communicate with the database.
+Rails communicates with the database through an ORM, ActiveRecord. In the config directory, routes are created. When a url is typed in, the route is checked, and if found it goes to the controller. The controller will have any variables needed defined, and will direct the program to look at the models. The models inherit from ActiveRecord::Base, and so the ActiveRecord methods are able to be used on those classes, and the ActiveRecord methods will execute sql to actually read or write information from the database according to the parametrs.
+
+2) What is a resource?
+A resource is a type of data that will be stored in a rails app. A resource will have a database table for it, a model, a controller, routes and views when applicable.
+
+3) What are the standard RESTful routes for a resource?
+index, new, create, edit, update, show, destroy
+
+4) What is CRUD?
+CRUD stands for create, read, update, delete. It indicates the four basic functions that should be able to be performed.
+
+5) What is REST?
+REST stands for representational state transfer. It is a convention of different routes used to perform different tasks in the app. For example, a RESTful app would always have a list of all instances of a class at the index route. If this list was located at some other route, it would not be using RESTful procedures.
+
+6) What is the difference between CRUD and REST?
+CRUD is an app's ability to create, read, update, and delete items. REST is the convention used to determine what routes different portions of the app should be located at.
+
+7) Describe the flow of a request from a users browser through the rails stack and back.
+The user enters a url. The url is compared to the routes in config/routes.rb. If a match is found, it is directed to the correlating controller and action. If the action references a model, the app then looks at that model and when necessary uses ActiveRecord to pull information from the database. Required data is then sent back to the controller. The data is sent to the corresponding view, and the view will use erb or haml to use ruby variables for dynamic content. The view is returned to the controller as a string of html, which is then rendered in the user's browser.
+
+8) What are HTTP verbs?
+HTTP verbs indicate different actions and http requests that can be made. Get is to retrieve data. Post and put are to send data to the app. Delete is to remove data.
+
+9) Why do we use migrations.
+We use migrations to keep track of how the structure of the database changes over time and to make it easier to ensure that databases in different environments have the same structure. ActiveRecord uses timestamps in migration names to ensure that they run in the correct order. Migrations also keep track of how to revert back to a former database state.
