@@ -1,0 +1,14 @@
+<%= form_for Comment.new do |f| %>
+  <div class="field">
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

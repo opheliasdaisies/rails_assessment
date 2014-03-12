@@ -3,5 +3,16 @@
 <p>Created at <%= @post.created_at %></p>
 <div class="body"><%= @post.body %></div>
 <br>
+<h2>Write a Comment</h2>
+<%= render "comment_form" %>
+<br>
+<h2>Your Comments:</h2>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li><%= comment.body %>
+        <br>Written by: <%= comment.author %>
+        <br><%= link_to "Delete", comment, {:method => "delete", :data => {:confirm => "Are you sure you want to delete this comment?"}}%></li>
+    <% end %>
+  </ul>
 <%= link_to "All Posts", posts_path %>
 <%= link_to "Edit", edit_post_path(@post) %>
