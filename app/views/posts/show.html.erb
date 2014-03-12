@@ -2,3 +2,6 @@
 <p>Written by <%= @post.author %></p>
 <p>Created at <%= @post.created_at %></p>
 <div class="body"><%= @post.body %></div>
+<br>
+<%= link_to "All Posts", posts_path %>
+<%= link_to "Edit", edit_post_path(@post) %>
